@@ -22,8 +22,12 @@ AppDataSource.initialize().then(async () => {
     const port = 3000;
     const operations = new Operations();
 
-    app.get('/Api', async (req: Request, res: Response) => {
+    app.get('/Api/AllTS', async (req: Request, res: Response) => {
       res.send(await operations.AllTechnicianSkill());
+    });
+
+    app.get('/Api/AllCalls', async (req: Request, res: Response) => {
+      res.send(await operations.AllCalls());
     });
 
     app.listen(port, () => {
