@@ -27,4 +27,5 @@ export class CallCentre {
     @ManyToOne(() => Employee)
     @JoinColumn({ name: "EmpId" })
     Employee!: Employee;
+
 }
