@@ -27,3 +27,12 @@ GET http://localhost:3000/Api/AllProblems
 
 ###ALL PROBLEMCALL
 GET http://localhost:3000/Api/AllProblemCalls
+
+###ALL CLIENTCONTRACT
+GET http://localhost:3000/Api/AllClientContracts
+
+###ALL SERVICECONTRACT
+GET http://localhost:3000/Api/AllServiceContracts
+
+###ALL SERVICE
+GET http://localhost:3000/Api/AllServices

@@ -9,6 +9,9 @@ import { Employee } from "../entity/Employee";
 import { Job } from "../entity/Job";
 import { JobDescription } from "../entity/JobDescription";
 import { ProblemCall } from "../entity/ProblemCall";
+import { ClientContract } from "../entity/ClientContract";
+import { ServiceContract } from "../entity/ServiceContract";
+import { Service } from "../entity/Service";
 
 export class Operations {
     constructor() {
@@ -71,5 +74,23 @@ export class Operations {
         const PCRepository = AppDataSource.getRepository(ProblemCall);
         const PCs = await PCRepository.find();
         return PCs;
+    }
+
+    public async AllClientContracts(){
+        const CCRepository = AppDataSource.getRepository(ClientContract);
+        const CCs = await CCRepository.find();
+        return CCs;
+    }
+
+    public async AllServiceContracts(){
+        const SCRepository = AppDataSource.getRepository(ServiceContract);
+        const SCs = await SCRepository.find();
+        return SCs;
+    }
+
+    public async AllServices(){
+        const serviceRepository = AppDataSource.getRepository(Service);
+        const services = await serviceRepository.find();
+        return services;
     }
 }

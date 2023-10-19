@@ -10,6 +10,9 @@ import { Job } from "./entity/Job"
 import { JobDescription } from "./entity/JobDescription"
 import { Problem } from "./entity/Problem"
 import { ProblemCall } from "./entity/ProblemCall"
+import { ClientContract } from "./entity/ClientContract"
+import { ServiceContract } from "./entity/ServiceContract"
+import { Service } from "./entity/Service"
 
 export const AppDataSource = new DataSource({
     type: "mysql",
@@ -30,7 +33,10 @@ export const AppDataSource = new DataSource({
         JobDescription,
         Problem,
         ProblemCall,
-        Client
+        Client,
+        ClientContract,
+        ServiceContract,
+        Service
     ],
     migrations: [],
     subscribers: [],

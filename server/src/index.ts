@@ -62,6 +62,18 @@ AppDataSource.initialize().then(async () => {
       res.send(await operations.AllProblemCalls());
     });
 
+    app.get('/Api/AllClientContracts', async (req: Request, res: Response) => {
+      res.send(await operations.AllClientContracts());
+    });
+
+    app.get('/Api/AllServiceContracts', async (req: Request, res: Response) => {
+      res.send(await operations.AllServiceContracts());
+    });
+
+    app.get('/Api/AllServices', async (req: Request, res: Response) => {
+      res.send(await operations.AllServices());
+    });
+
     app.listen(port, () => {
       console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
     });
