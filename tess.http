@@ -1,6 +1,9 @@
 ###ALL TECHNICIANSKILL
 GET http://localhost:3000/Api/AllTS
 
+###ALL CLIENT
+GET http://localhost:3000/Api/AllClients
+
 ###ALL CALLCENTRE
 GET http://localhost:3000/Api/AllCalls
 

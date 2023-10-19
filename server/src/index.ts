@@ -26,6 +26,10 @@ AppDataSource.initialize().then(async () => {
       res.send(await operations.AllTechnicianSkill());
     });
 
+    app.get('/Api/AllClients', async (req: Request, res: Response) => {
+      res.send(await operations.AllClients());
+    });
+
     app.get('/Api/AllCalls', async (req: Request, res: Response) => {
       res.send(await operations.AllCalls());
     });

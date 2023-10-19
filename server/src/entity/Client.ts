@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import { ClientUser } from "./ClientUser"; 
 
 @Entity({ name: "Client" })
 export class Client {
@@ -25,5 +26,5 @@ export class Client {
     AccountType!: string;
 
     @Column({ type: "varchar", length: 255, nullable: true })
-    Notes!: string | null;
+    Notes!: string;
 }

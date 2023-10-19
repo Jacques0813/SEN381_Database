@@ -13,11 +13,16 @@ import { ProblemCall } from "../entity/ProblemCall";
 export class Operations {
     constructor() {
     }
-
     public async AllTechnicianSkill(){
         const TSRepository = AppDataSource.getRepository(TechnicianSkill);
-        const TS = await TSRepository.find();
-        return TS;
+        const TSs = await TSRepository.find();
+        return TSs;
+    }
+
+    public async AllClients(){
+        const clientRepository = AppDataSource.getRepository(Client);
+        const clients = await clientRepository.find();
+        return clients;
     }
 
     public async AllCalls(){

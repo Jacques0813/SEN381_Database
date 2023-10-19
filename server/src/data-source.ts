@@ -29,7 +29,8 @@ export const AppDataSource = new DataSource({
         Job,
         JobDescription,
         Problem,
-        ProblemCall
+        ProblemCall,
+        Client
     ],
     migrations: [],
     subscribers: [],
