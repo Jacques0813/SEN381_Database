@@ -20,11 +20,11 @@ export class CallCentre {
     @Column({ type: "timestamp" })
     End!: Date;
 
-    @ManyToOne(() => Client)
-    @JoinColumn({ name: "ClientId" })
-    Client!: Client;
+    // @ManyToOne(() => Client)
+    // @JoinColumn({ name: "ClientId" })
+    // Client!: Client;
 
-    @ManyToOne(() => Employee)
-    @JoinColumn({ name: "EmpId" })
-    Employee!: Employee;
+    // @ManyToOne(() => Employee)
+    // @JoinColumn({ name: "EmpId" })
+    // Employee!: Employee;
 }

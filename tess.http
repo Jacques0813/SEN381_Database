@@ -1,2 +1,26 @@
+###ALL TECHNICIANSKILL
+GET http://localhost:3000/Api/AllTS
 
-GET http://localhost:3000
+###ALL CALLCENTRE
+GET http://localhost:3000/Api/AllCalls
+
+###ALL CLIENTUSER
+GET http://localhost:3000/Api/AllUsers
+
+###ALL CONTRACT
+GET http://localhost:3000/Api/AllContracts
+
+###ALL EMPLOYEE
+GET http://localhost:3000/Api/AllEmployees
+
+###ALL JOB
+GET http://localhost:3000/Api/AllJobs
+
+###ALL JOBDESCRIPTION
+GET http://localhost:3000/Api/AllJobDescriptions
+
+###ALL PROBLEM
+GET http://localhost:3000/Api/AllProblems
+
+###ALL PROBLEMCALL
+GET http://localhost:3000/Api/AllProblemCalls

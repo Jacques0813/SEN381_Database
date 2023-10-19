@@ -14,7 +14,7 @@ export class Problem {
     @Column({ type: "int" })
     CreatedBy!: number;
 
-    @Column({ type: "varchar", length: 255 })
+    @Column({ type: "nvarchar", length: 255 })
     Description!: string;
 
     @Column({ type: "date" })
@@ -23,11 +23,11 @@ export class Problem {
     @Column({ type: "date", nullable: true })
     AvailableEnd!: Date | null;
 
-    @ManyToOne(() => Client)
-    @JoinColumn({ name: "ClientId" })
-    Client!: Client;
+    // @ManyToOne(() => Client)
+    // @JoinColumn({ name: "ClientId" })
+    // Client!: Client;
 
-    @ManyToOne(() => Employee)
-    @JoinColumn({ name: "CreatedBy" })
-    CreatedByEmployee!: Employee;
+    // @ManyToOne(() => Employee)
+    // @JoinColumn({ name: "CreatedBy" })
+    // CreatedByEmployee!: Employee;
 }

@@ -28,7 +28,7 @@ export class Contract {
     @Column({ type: "varchar", length: 10 })
     Priority!: string;
 
-    @ManyToOne(() => Employee)
-    @JoinColumn({ name: "CreatedBy" })
-    CreatedByEmployee!: Employee;
+    // @ManyToOne(() => Employee)
+    // @JoinColumn({ name: "CreatedBy" })
+    // CreatedByEmployee!: Employee;
 }

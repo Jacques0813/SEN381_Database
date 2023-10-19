@@ -1,18 +1,21 @@
-import { Entity, ManyToOne, JoinColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, ManyToOne, JoinColumn, PrimaryGeneratedColumn, Column, PrimaryColumn } from "typeorm";
 import { Problem } from "./Problem"; // Import the Problem entity
 import { CallCentre } from "./CallCentre"; // Import the CallCentre entity
 
 @Entity({ name: "ProblemCall" })
 export class ProblemCall {
 
-    @PrimaryGeneratedColumn()
+    @PrimaryColumn({ type: 'int' })
     CallId!: number;
 
-    @ManyToOne(() => Problem, { primary: true })
-    @JoinColumn({ name: "ProblemId" })
-    Problem!: Problem;
+    @PrimaryColumn({ type: 'int' })
+    ProblemId!: number;
 
-    @ManyToOne(() => CallCentre)
-    @JoinColumn({ name: "CallId" })
-    CallCentre!: CallCentre;
+    // @ManyToOne(() => Problem, { primary: true })
+    // @JoinColumn({ name: "ProblemId" })
+    // Problem!: Problem;
+
+    // @ManyToOne(() => CallCentre)
+    // @JoinColumn({ name: "CallId" })
+    // CallCentre!: CallCentre;
 }

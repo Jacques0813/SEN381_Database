@@ -30,6 +30,34 @@ AppDataSource.initialize().then(async () => {
       res.send(await operations.AllCalls());
     });
 
+    app.get('/Api/AllUsers', async (req: Request, res: Response) => {
+      res.send(await operations.AllUsers());
+    });
+
+    app.get('/Api/AllContracts', async (req: Request, res: Response) => {
+      res.send(await operations.AllContracts());
+    });
+
+    app.get('/Api/AllEmployees', async (req: Request, res: Response) => {
+      res.send(await operations.AllEmployees());
+    });
+
+    app.get('/Api/AllJobs', async (req: Request, res: Response) => {
+      res.send(await operations.AllJobs());
+    });
+
+    app.get('/Api/AllJobDescriptions', async (req: Request, res: Response) => {
+      res.send(await operations.AllJobDescriptions());
+    });
+
+    app.get('/Api/AllProblems', async (req: Request, res: Response) => {
+      res.send(await operations.AllProblems());
+    });
+
+    app.get('/Api/AllProblemCalls', async (req: Request, res: Response) => {
+      res.send(await operations.AllProblemCalls());
+    });
+
     app.listen(port, () => {
       console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
     });
