@@ -1,4 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { Problem } from "./Problem"; // Import the Problem entity
+import { Job } from "./Job"; // Import the Job entity
 
 @Entity({ name: "Employee" })
 export class Employee {
@@ -50,4 +52,10 @@ export class Employee {
 
     @Column({ type: "varchar", length: 10 })
     TaxNumber!: string;
+
+    @OneToMany(() => Problem, (problem) => problem.CreatedByEmployee)
+    problems!: Problem[];
+
+    @OneToMany(() => Job, (job) => job.Employee)
+    jobs!: Job[];
 }

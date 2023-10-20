@@ -18,4 +18,12 @@ export class ProblemCall {
     // @ManyToOne(() => CallCentre)
     // @JoinColumn({ name: "CallId" })
     // CallCentre!: CallCentre;
+
+    @ManyToOne(() => Problem, (problem) => problem.ProblemCalls)
+    @JoinColumn({ name: "ProblemId" })
+    Problem!: Problem;
+
+    @ManyToOne(() => CallCentre, (callCentre) => callCentre.problemCalls)
+    @JoinColumn({ name: "CallId" })
+    CallCentre!: CallCentre;
 }

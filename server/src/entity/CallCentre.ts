@@ -1,6 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, OneToMany } from "typeorm";
 import { Client } from "./Client"; // Import the Client entity
 import { Employee } from "./Employee"; // Import the Employee entity
+import { ProblemCall } from "./ProblemCall";
 
 @Entity({ name: "CallCentre" })
 export class CallCentre {
@@ -27,4 +28,13 @@ export class CallCentre {
     // @ManyToOne(() => Employee)
     // @JoinColumn({ name: "EmpId" })
     // Employee!: Employee;
+
+    @ManyToOne(() => Client, (client) => client.clientUsers)
+    Client!: Client;
+
+    @ManyToOne(() => Employee, (employee) => employee.jobs)
+    Employee!: Employee;
+
+    @OneToMany(() => ProblemCall, (ProblemCall) => ProblemCall.CallCentre) //Check relationship
+    problemCalls!: ProblemCall[];
 }

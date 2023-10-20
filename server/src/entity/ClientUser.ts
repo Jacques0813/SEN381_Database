@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
 import { Client } from "./Client"; // Import the Client entity
+import { Employee } from "./Employee"; // Import the Employee entity
 
 @Entity({ name: "ClientUser" })
 export class ClientUser {
@@ -46,4 +47,12 @@ export class ClientUser {
     // @ManyToOne(() => Client)
     // @JoinColumn({ name: "ClientId" })
     // Clients!: Client;
+
+    // Many-to-One relationship with Client
+    @ManyToOne(() => Client, (client) => client.clientUsers)
+    Client!: Client;
+
+    // Many-to-One relationship with Employee (EmpId)
+    // @ManyToOne(() => Employee, (employee) => employee.clientUsers)
+    // Employee!: Employee;
 }

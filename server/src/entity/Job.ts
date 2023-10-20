@@ -37,4 +37,13 @@ export class Job {
     // @ManyToOne(() => Employee, { onDelete: "CASCADE" }) // onDelete: "CASCADE" is used to automatically delete the job when the created employee is deleted
     // @JoinColumn({ name: "CreatedBy" })
     // CreatedByEmployee!: Employee;
+
+    @ManyToOne(() => Problem, (problem) => problem.jobs)
+    Problem!: Problem;
+
+    @ManyToOne(() => Employee, (employee) => employee.jobs)
+    Employee!: Employee;
+
+    @ManyToOne(() => Employee, (employee) => employee.jobs)
+    CreatedByEmployee!: Employee;
 }

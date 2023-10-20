@@ -1,6 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from "typeorm";
 import { Client } from "./Client"; // Import the Client entity
 import { Employee } from "./Employee"; // Import the Employee entity
+import { Job } from "./Job"; // Import the Job entity
+import { ProblemCall } from "./ProblemCall";
 
 @Entity({ name: "Problem" })
 export class Problem {
@@ -30,4 +32,16 @@ export class Problem {
     // @ManyToOne(() => Employee)
     // @JoinColumn({ name: "CreatedBy" })
     // CreatedByEmployee!: Employee;
+
+    @ManyToOne(() => Client, (client) => client.problems)
+    Client!: Client;
+
+    @ManyToOne(() => Employee, (employee) => employee.problems)
+    CreatedByEmployee!: Employee;
+
+    @OneToMany(() => Job, (job) => job.Problem)
+    jobs!: Job[];
+
+    @OneToMany(() => ProblemCall, (ProblemCall) => ProblemCall.Problem)
+    ProblemCalls!: Job[];
 }
