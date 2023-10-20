@@ -5,6 +5,7 @@ import { AppDataSource } from "./data-source"
 import { TechnicianSkill} from "./entity/TechnicianSkill"
 import {Operations} from "./database_operations/operations"
 import cors from "cors"
+import { ClientController } from './database_operations/ClientController';
 
 AppDataSource.initialize().then(async () => {
 
@@ -27,7 +28,8 @@ AppDataSource.initialize().then(async () => {
     });
 
     app.get('/Api/AllClients', async (req: Request, res: Response) => {
-      res.send(await operations.AllClients());
+      const CC = new ClientController();
+      res.send(await CC.AllClients());
     });
 
     app.get('/Api/AllCalls', async (req: Request, res: Response) => {
