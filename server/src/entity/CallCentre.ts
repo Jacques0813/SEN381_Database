@@ -35,6 +35,6 @@ export class CallCentre {
     @ManyToOne(() => Employee, (employee) => employee.jobs)
     Employee!: Employee;
 
-    @OneToMany(() => ProblemCall, (ProblemCall) => ProblemCall.CallCentre) //Check relationship
+    @OneToMany(() => ProblemCall, (ProblemCall) => ProblemCall.CallCentre) 
     problemCalls!: ProblemCall[];
 }
