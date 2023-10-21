@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, OneToMany } from "typeorm";
 import { Employee } from "./Employee"; // Import the Employee entity
+import { ClientContract } from "./ClientContract";
 
 @Entity({ name: "Contract" })
 export class Contract {
@@ -31,4 +32,8 @@ export class Contract {
     // @ManyToOne(() => Employee)
     // @JoinColumn({ name: "CreatedBy" })
     // CreatedByEmployee!: Employee;
+
+    // One-to-Many relationship with ClientContract
+    @OneToMany(() => ClientContract, (clientContract) => clientContract.contract)
+    clientContract!: ClientContract[];
 }
