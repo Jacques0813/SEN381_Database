@@ -6,6 +6,13 @@ import { TechnicianSkill} from "./entity/TechnicianSkill"
 import {Operations} from "./database_operations/operations"
 import cors from "cors"
 import { ClientController } from './database_operations/ClientController';
+import { JobController } from './database_operations/JobController';
+import { ProblemController } from './database_operations/ProblemController';
+import { JobDescriptionController } from './database_operations/JobDescriptionController';
+import { ProblemCallController } from './database_operations/ProblemCallController';
+import { ServiceContractController } from './database_operations/ServiceContractController';
+import { ServiceController } from './database_operations/ServiceController';
+import { TechnicianSkillController } from './database_operations/TechnicianSkillController';
 
 AppDataSource.initialize().then(async () => {
 
@@ -23,13 +30,21 @@ AppDataSource.initialize().then(async () => {
     const port = 3000;
     const operations = new Operations();
 
+    const JC = new JobController();
+    const JDC = new JobDescriptionController();
+    const PCC = new ProblemCallController();
+    const PC = new ProblemController();
+    const SCC = new ServiceContractController();
+    const SC = new ServiceController();
+    const TSC = new TechnicianSkillController();
+    const CC = new ClientController();
+
     app.get('/Api/AllTS', async (req: Request, res: Response) => {
       res.send(await operations.AllTechnicianSkill());
     });
 
     app.get('/Api/AllClients', async (req: Request, res: Response) => {
-      const CC = new ClientController();
-      res.send(await CC.AllClients());
+      res.send(await CC.SelectAll());
     });
 
     app.get('/Api/AllCalls', async (req: Request, res: Response) => {
@@ -49,11 +64,11 @@ AppDataSource.initialize().then(async () => {
     });
 
     app.get('/Api/AllJobs', async (req: Request, res: Response) => {
-      res.send(await operations.AllJobs());
+      res.send(await JC.SelectAll());
     });
 
     app.get('/Api/AllJobDescriptions', async (req: Request, res: Response) => {
-      res.send(await operations.AllJobDescriptions());
+      res.send(await JDC.SelectAll());
     });
 
     app.get('/Api/AllProblems', async (req: Request, res: Response) => {
