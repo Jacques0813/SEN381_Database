@@ -3,6 +3,7 @@ import { Problem } from "./Problem"; // Import the Problem entity
 import { ClientUser } from "./ClientUser"; // Import the ClientUser entity
 import { ProblemCall } from "./ProblemCall"; // Import the ProblemCall entity
 import { Employee } from "./Employee"; // Import the Employee entity
+import { ClientContract } from "./ClientContract";
 
 @Entity({ name: "Client" })
 export class Client {
@@ -43,7 +44,8 @@ export class Client {
     @OneToMany(() => ProblemCall, (problemCall) => problemCall.CallCentre)
     problemCalls!: ProblemCall[];
 
-    // Many-to-One relationship with Employee (CreatedBy)
-    // @ManyToOne(() => Employee, (employee) => employee.clientsCreated)
-    // CreatedByEmployee!: Employee;
+    //One-to-many relationship with Clientcontracts
+    @OneToMany(() => ClientContract, (Clientcontract) => ClientContract.ClientId)
+    Clientcontract!: ClientContract[];
+
 }
