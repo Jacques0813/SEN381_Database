@@ -44,8 +44,8 @@ export class Client {
     @OneToMany(() => ProblemCall, (problemCall) => problemCall.CallCentre)
     problemCalls!: ProblemCall[];
 
-    //One-to-many relationship with Clientcontracts
-    @OneToMany(() => ClientContract, (Clientcontract) => ClientContract.ClientId)
-    Clientcontract!: ClientContract[];
+    // //One-to-many relationship with Clientcontracts
+    // @OneToMany(() => ClientContract, (Clientcontract) => ClientContract.ClientId)
+    // Clientcontract!: ClientContract[];
 
 }
