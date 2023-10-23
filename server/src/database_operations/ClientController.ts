@@ -1,4 +1,3 @@
-import { DataSource } from "typeorm";
 import { AppDataSource } from "../index";
 import { Client } from "../entity/Client";
 
@@ -9,7 +8,7 @@ export class ClientController {
         this.clientRepository = AppDataSource.getRepository(Client);
     }
 
-    public async AllClients(){
+    public async SelectAll(){
         const clients = await this.clientRepository.find();
         return clients;
     }
