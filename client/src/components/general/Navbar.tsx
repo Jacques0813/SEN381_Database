@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import { MdOutlineAccountCircle } from 'react-icons/md';
 import Headings from './Headings';
 
-function NewNav() {
+interface Headings {
+  heads: string[];
+  functions: (() => void)[];
+}
+
+function NewNav({heads, functions}: Headings) {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState('Initial Message');
   const [showAccountOverlay, setShowAccountOverlay] = useState(false);
@@ -54,7 +59,7 @@ function NewNav() {
 
         <div className="flex items-center">
           {/* Menu Items here. USE FOR LOOP */}
-          <Headings heads={["heading 1", "heading 2", "heading 3"]}/>
+          <Headings heads={heads} onClickFunctions={functions}/>
           {/* <a href="#" className={`mx-1.5 sm:mx-6 hover:border-blue-500 hover:border-b-2 ${message === 'home' ? 'border-b-2 border-blue-500' : ''}`} onClick={() => toggleOptions('home')}>home</a>
           <a href="#" className={`mx-1.5 sm:mx-6 hover:border-blue-500 hover.border-b-2 ${message === 'features' ? 'border-b-2 border-blue-500' : ''}`} onClick={() => toggleOptions('features')}>features</a>
           <a href="#" className={`mx-1.5 sm:mx-6 hover:border-blue-500 hover.border-b-2 ${message === 'pricing' ? 'border-b-2 border-blue-500' : ''}`} onClick={() => toggleOptions('pricing')}>pricing</a> */}
