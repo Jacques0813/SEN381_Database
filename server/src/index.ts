@@ -24,7 +24,7 @@ AppDataSource.initialize().then(async () => {
 
     const app: Express = express();
     app.use(cors({
-      origin: 'http://localhost:5173',
+      origin: 'http://localhost:5174',
       methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     }));
     const port = 3000;

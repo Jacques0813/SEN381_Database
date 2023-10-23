@@ -10,6 +10,7 @@ import CallCentre from "./forms/CallCentre.tsx";
 import Technician from "./forms/Technician.tsx";
 import ErrorPage from "./forms/ErrorPage.tsx";
 import Register from "./forms/Register.tsx";
+import TestingDB from "./forms/TestingDB.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/admin" element={<Admin />} />
         <Route path="/callcentre" element={<CallCentre />} />
         <Route path="/technician" element={<Technician />} />
+        <Route path="/test" element={<TestingDB />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Router>
