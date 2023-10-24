@@ -36,3 +36,6 @@ GET http://localhost:3000/Api/AllServiceContracts
 
 ###ALL SERVICE
 GET http://localhost:3000/Api/AllServices
+
+###ALL SERVICE
+GET http://localhost:3000/Api/Sendmail

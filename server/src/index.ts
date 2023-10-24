@@ -13,6 +13,7 @@ import { ProblemCallController } from './database_operations/ProblemCallControll
 import { ServiceContractController } from './database_operations/ServiceContractController';
 import { ServiceController } from './database_operations/ServiceController';
 import { TechnicianSkillController } from './database_operations/TechnicianSkillController';
+import { Email } from './testing';
 
 AppDataSource.initialize().then(async () => {
 
@@ -89,6 +90,11 @@ AppDataSource.initialize().then(async () => {
 
     app.get('/Api/AllServices', async (req: Request, res: Response) => {
       res.send(await operations.AllServices());
+    });
+
+    app.get('/Api/Sendmail', async (req: Request, res: Response) => {
+      const mail = new Email();
+      res.send(await mail.send());
     });
 
     app.listen(port, () => {
