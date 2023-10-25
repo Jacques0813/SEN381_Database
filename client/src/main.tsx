@@ -11,6 +11,7 @@ import Technician from "./forms/Technician.tsx";
 import ErrorPage from "./forms/ErrorPage.tsx";
 import Register from "./forms/Register.tsx";
 import TestingDB from "./forms/TestingDB.tsx";
+import { Analytics } from "@vercel/analytics/react";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -26,5 +27,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Router>
+    <Analytics />
   </React.StrictMode>
 );
