@@ -6,8 +6,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/DB': {
-        target: 'https://sen-381-database.vercel.app/DB',
+      '/': {
+        target: 'https://sen-381-database.vercel.app/',
         changeOrigin: true
       }
     }
