@@ -6,11 +6,10 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/': {
-        target: 'https://sen-381-database.vercel.app/',
+      '/api': {
+        target: 'http://localhost:3000',
         changeOrigin: true
       }
     }
-  },
-  base: 'https://sen-381-database.vercel.app',
+  }
 })
