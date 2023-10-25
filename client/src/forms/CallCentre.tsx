@@ -5,7 +5,6 @@ import { useState } from "react";
 import TableComponent from "../components/general/TableComponent";
 import DataJson from "../testing/JSONdata.json";
 import BlueButton from "../components/general/BlueButton";
-import BackgroundImage from "../assets/BGPic.jpg";
 
 function CallCentre() {
   const divStyle = {
@@ -187,7 +186,6 @@ function CallCentre() {
   };
 
   function testingClick() {}
-  const [data, setData] = useState(exampleData);
 
   if (isMobile) {
     return (

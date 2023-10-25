@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface TableValues {
   jsonData: any[];
   onClickFunction: () => void;
@@ -23,7 +21,11 @@ function TableComponent({ jsonData, onClickFunction }: TableValues) {
               <thead className="bg-gray-200 border-b">
                 <tr>
                   {headings.map((head) => (
-                    <th key={head} scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                    <th
+                      key={head}
+                      scope="col"
+                      className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                    >
                       {head}
                     </th>
                   ))}
@@ -31,9 +33,16 @@ function TableComponent({ jsonData, onClickFunction }: TableValues) {
               </thead>
               <tbody>
                 {jsonData.map((data) => (
-                  <tr key={i++} onClick={onClickFunction} className={`bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100`}>
+                  <tr
+                    key={i++}
+                    onClick={onClickFunction}
+                    className={`bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100`}
+                  >
                     {headings.map((head) => (
-                      <td key={head} className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      <td
+                        key={head}
+                        className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
+                      >
                         {data[head]}
                       </td>
                     ))}

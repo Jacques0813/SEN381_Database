@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface Ticket {
   id: number;
@@ -24,31 +24,30 @@ interface Ticket {
 interface Props {
   ticket: Ticket;
   onClick: (ticketId: number) => void;
-  // onEdit: (ticketId: number) => void;
-  onSave: (editedTicket: Ticket) => void;
-  onCancel: () => void;
 }
 
-const SelectableTicket: React.FC<Props> = ({ ticket, onSave, onCancel, onClick }) => {
+const SelectableTicket: React.FC<Props> = ({ ticket, onClick }) => {
   const handleTicketClick = () => {
     onClick(ticket.id);
   };
 
   return (
     <div
-      className={`ticket ${ticket.issueStatus === 'Resolved' ? 'resolved' : ''}`}
+      className={`ticket ${
+        ticket.issueStatus === "Resolved" ? "resolved" : ""
+      }`}
       style={{
-        cursor:"pointer",
+        cursor: "pointer",
         width: "80vw",
         display: "flex",
-        marginLeft:"auto",
-        marginRight:"auto",
+        marginLeft: "auto",
+        marginRight: "auto",
         justifyContent: "space-around",
         alignItems: "center",
         backgroundColor: "white", // White background
-        borderRadius: "10px",     // Rounded corners
+        borderRadius: "10px", // Rounded corners
         boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)", // Black box shadow
-        padding:"2%",
+        padding: "2%",
       }}
       onClick={handleTicketClick}
     >
@@ -62,7 +61,10 @@ const SelectableTicket: React.FC<Props> = ({ ticket, onSave, onCancel, onClick }
         <p>
           <strong>Date Created:</strong> {ticket.dateCreated}
           {ticket.dateResponded && (
-            <span> | <strong>Date Responded:</strong> {ticket.dateResponded}</span>
+            <span>
+              {" "}
+              | <strong>Date Responded:</strong> {ticket.dateResponded}
+            </span>
           )}
         </p>
       </div>
@@ -78,7 +80,7 @@ const SelectableTicket: React.FC<Props> = ({ ticket, onSave, onCancel, onClick }
           <strong>Issue Status:</strong> {ticket.issueStatus}
         </p>
       </div>
-  </div>
+    </div>
   );
 };
 
