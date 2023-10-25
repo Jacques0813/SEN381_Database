@@ -14,19 +14,21 @@ import TestingDB from "./forms/TestingDB.tsx";
 import { Analytics } from "@vercel/analytics/react";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <Router>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/client" element={<Client />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/callcentre" element={<CallCentre />} />
-        <Route path="/technician" element={<Technician />} />
-        <Route path="/test" element={<TestingDB />} />
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
-    </Router>
+  <>
+    <React.StrictMode>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/client" element={<Client />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/callcentre" element={<CallCentre />} />
+          <Route path="/technician" element={<Technician />} />
+          <Route path="/test" element={<TestingDB />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </Router>
+    </React.StrictMode>
     <Analytics />
-  </React.StrictMode>
+  </>
 );

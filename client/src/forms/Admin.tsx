@@ -1,6 +1,5 @@
 import Message from "../components/general/Message";
 import { GetUserMode } from "../functions/UserMode";
-import { Analytics } from "@vercel/analytics/react";
 
 function Admin() {
   const isMobile = GetUserMode();
@@ -13,7 +12,6 @@ function Admin() {
         </h1>
         <h2>example</h2>
         <Message />
-        <Analytics />
       </div>
     );
   } else {
@@ -24,7 +22,6 @@ function Admin() {
         </h1>
         <h2>example</h2>
         <Message />
-        <Analytics />
       </div>
     );
   }
