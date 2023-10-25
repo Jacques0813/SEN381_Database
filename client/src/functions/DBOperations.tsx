@@ -1,5 +1,5 @@
 function getTC() {
-  fetch("http://localhost:3000/DB/AllTS")
+  fetch("https://sen-381-database.vercel.app/DB/AllTS")
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
