@@ -1,5 +1,5 @@
 import { ProblemCall } from "../entity/ProblemCall";
-import { AppDataSource } from "../index";
+import { AppDataSource } from "../../index";
 
 export class ProblemCallController {
     private PCRepository;

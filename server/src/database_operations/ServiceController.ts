@@ -1,5 +1,5 @@
 import { Service } from "../entity/Service";
-import { AppDataSource } from "../index";
+import { AppDataSource } from "../../index";
 
 export class ServiceController {
     private serviceRepository;

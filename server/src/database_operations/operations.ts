@@ -1,4 +1,4 @@
-import {AppDataSource} from "../index"
+import {AppDataSource} from "../../index"
 import { TechnicianSkill} from "../entity/TechnicianSkill"
 import { CallCentre } from "../entity/CallCentre";
 import { Client } from "../entity/Client";

@@ -1,4 +1,4 @@
-import { AppDataSource } from "../index";
+import { AppDataSource } from "../../index";
 import { CallCentre } from "../entity/CallCentre";
 
 export class CallCentreController {

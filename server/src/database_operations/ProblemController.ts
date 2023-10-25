@@ -1,5 +1,5 @@
 import { Problem } from "../entity/Problem";
-import { AppDataSource } from "../index";
+import { AppDataSource } from "../../index";
 
 export class ProblemController {
     private problemRepository;

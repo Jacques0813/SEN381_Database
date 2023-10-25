@@ -1,4 +1,4 @@
-import { AppDataSource } from "../index";
+import { AppDataSource } from "../../index";
 import { Employee } from "../entity/Employee";
 
 export class EmployeeController {

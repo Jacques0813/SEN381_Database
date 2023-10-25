@@ -1,5 +1,5 @@
 import { ServiceContract } from "../entity/ServiceContract";
-import { AppDataSource } from "../index";
+import { AppDataSource } from "../../index";
 
 export class ServiceContractController {
     private SCRepository;

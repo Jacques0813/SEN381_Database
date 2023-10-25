@@ -1,5 +1,5 @@
 import { TechnicianSkill } from "../entity/TechnicianSkill";
-import { AppDataSource } from "../index";
+import { AppDataSource } from "../../index";
 
 export class TechnicianSkillController {
     private TSRepository;

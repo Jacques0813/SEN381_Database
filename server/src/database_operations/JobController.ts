@@ -1,5 +1,5 @@
 import { Job } from "../entity/Job";
-import { AppDataSource } from "../index";
+import { AppDataSource } from "../../index";
 
 export class JobController {
     private jobRepository;

@@ -1,5 +1,5 @@
 import { JobDescription } from "../entity/JobDescription";
-import { AppDataSource } from "../index";
+import { AppDataSource } from "../../index";
 
 export class JobDescriptionController {
     private JDRepository;

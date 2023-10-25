@@ -1,4 +1,4 @@
-import { AppDataSource } from "../index";
+import { AppDataSource } from "../../index";
 import { ClientUser } from "../entity/ClientUser";
 
 export class ClientUserController {
