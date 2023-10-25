@@ -20,7 +20,7 @@ AppDataSource.initialize().then(async () => {
 
     const app: Express = express();
     app.use(cors({
-      origin: "https://sen-381-database-frontend.vercel.app",
+      origin: process.env.CORS_ORIGIN,
       methods: process.env.CORS_METHODS,
     }));
     const port = process.env.PORT;
