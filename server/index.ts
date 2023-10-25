@@ -25,6 +25,9 @@ AppDataSource.initialize().then(async () => {
     }));
     const port = process.env.PORT;
 
+    app.get('/', (req, res) => {
+      res.send('Hey this is my API running 🥳')
+    })
     app.use('/DB', dbRoutes);
     app.use('/mail', mailRoutes);
 
