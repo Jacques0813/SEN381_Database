@@ -1,16 +1,19 @@
 import * as nodemailer from 'nodemailer';
+import dotenv from "dotenv";
 
 export class Email {
     private transporter;
     constructor(){
+      dotenv.config();
+      
       this.transporter = nodemailer.createTransport({
-        host: "smtp.gmail.com",
-        port: 465,
+        host: process.env.SMTP_HOST,
+        port: parseInt(process.env.SMTP_PORT || '3000'),
         secure: true,
         auth: {
           // TODO: replace `user` and `pass` values from <https://forwardemail.net>
-          user: "premiersssen381@gmail.com",
-          pass: "olnu drtp gjca qdym",
+          user: process.env.SMTP_USER,
+          pass: process.env.SMTP_PASSWORD,
         },
       });
     }

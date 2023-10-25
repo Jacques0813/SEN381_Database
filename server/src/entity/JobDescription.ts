@@ -16,7 +16,10 @@ export class JobDescription {
     @Column({ type: "varchar", length: 255, nullable: true })
     Description!: string | null;
 
-    @ManyToOne(() => Job)
-    @JoinColumn({ name: "JobId" })
-    Job!: Job;
+    // @ManyToOne(() => Job)
+    // @JoinColumn({ name: "JobId" })
+    // Job!: Job;
+
+    @ManyToOne(() => Job, (job) => job.JobId)
+    job!: Job;
 }

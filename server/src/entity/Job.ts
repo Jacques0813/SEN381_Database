@@ -1,6 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, OneToMany } from "typeorm";
 import { Problem } from "./Problem"; // Import the Problem entity
 import { Employee } from "./Employee"; // Import the Employee entity
+import { JobDescription } from "./JobDescription";
 
 @Entity({ name: "Job" })
 export class Job {
@@ -46,4 +47,7 @@ export class Job {
 
     @ManyToOne(() => Employee, (employee) => employee.jobs)
     CreatedByEmployee!: Employee;
+
+    @OneToMany(() => JobDescription, (jobdescription) => jobdescription.JobId)
+    jobdescription!: JobDescription;
 }

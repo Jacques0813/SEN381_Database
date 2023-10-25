@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, PrimaryColumn } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, PrimaryColumn, ManyToOne } from "typeorm"
+import { Employee } from "./Employee";
 
 @Entity({ name: "TechnicianSkill" }) 
 export class TechnicianSkill {
@@ -11,5 +12,8 @@ export class TechnicianSkill {
 
     @Column({ type:"nvarchar", length: 20 })
     Skill!: string
+
+    @ManyToOne(() => Employee, (employee) => employee.EmpId)
+    employee!: Employee[];
 
 }

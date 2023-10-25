@@ -13,89 +13,31 @@ import { ProblemCallController } from './database_operations/ProblemCallControll
 import { ServiceContractController } from './database_operations/ServiceContractController';
 import { ServiceController } from './database_operations/ServiceController';
 import { TechnicianSkillController } from './database_operations/TechnicianSkillController';
-import { Email } from './testing';
+import dotenv from "dotenv";
+import { Email } from './mailing/email';
+import dbRoutes from './routes/database';
+import mailRoutes from './routes/mail';
 
 AppDataSource.initialize().then(async () => {
 
+    dotenv.config();
     // console.log("Loading users from the database...")
     // const users = await AppDataSource.manager.find(TechnicianSkill)
     // console.log("Loaded users: ", users)
+
+    //This is a testing change
 
     console.log("Connected to database server");
 
     const app: Express = express();
     app.use(cors({
-      origin: 'http://localhost:5174',
-      methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+      origin: process.env.CORS_ORIGIN,
+      methods: process.env.CORS_METHODS,
     }));
-    const port = 3000;
-    const operations = new Operations();
+    const port = process.env.PORT;
 
-    const JC = new JobController();
-    const JDC = new JobDescriptionController();
-    const PCC = new ProblemCallController();
-    const PC = new ProblemController();
-    const SCC = new ServiceContractController();
-    const SC = new ServiceController();
-    const TSC = new TechnicianSkillController();
-    const CC = new ClientController();
-
-    app.get('/Api/AllTS', async (req: Request, res: Response) => {
-      res.send(await operations.AllTechnicianSkill());
-    });
-
-    app.get('/Api/AllClients', async (req: Request, res: Response) => {
-      res.send(await CC.SelectAll());
-    });
-
-    app.get('/Api/AllCalls', async (req: Request, res: Response) => {
-      res.send(await operations.AllCalls());
-    });
-
-    app.get('/Api/AllUsers', async (req: Request, res: Response) => {
-      res.send(await operations.AllUsers());
-    });
-
-    app.get('/Api/AllContracts', async (req: Request, res: Response) => {
-      res.send(await operations.AllContracts());
-    });
-
-    app.get('/Api/AllEmployees', async (req: Request, res: Response) => {
-      res.send(await operations.AllEmployees());
-    });
-
-    app.get('/Api/AllJobs', async (req: Request, res: Response) => {
-      res.send(await JC.SelectAll());
-    });
-
-    app.get('/Api/AllJobDescriptions', async (req: Request, res: Response) => {
-      res.send(await JDC.SelectAll());
-    });
-
-    app.get('/Api/AllProblems', async (req: Request, res: Response) => {
-      res.send(await operations.AllProblems());
-    });
-
-    app.get('/Api/AllProblemCalls', async (req: Request, res: Response) => {
-      res.send(await operations.AllProblemCalls());
-    });
-
-    app.get('/Api/AllClientContracts', async (req: Request, res: Response) => {
-      res.send(await operations.AllClientContracts());
-    });
-
-    app.get('/Api/AllServiceContracts', async (req: Request, res: Response) => {
-      res.send(await operations.AllServiceContracts());
-    });
-
-    app.get('/Api/AllServices', async (req: Request, res: Response) => {
-      res.send(await operations.AllServices());
-    });
-
-    app.get('/Api/Sendmail', async (req: Request, res: Response) => {
-      const mail = new Email();
-      res.send(await mail.send());
-    });
+    app.use('/DB', dbRoutes);
+    app.use('/mail', mailRoutes);
 
     app.listen(port, () => {
       console.log(`⚡️[server]: Server is running at http://localhost:${port}`);

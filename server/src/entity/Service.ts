@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from "typeorm";
 
 @Entity({ name: "Service" })
 export class Service {
@@ -14,4 +14,7 @@ export class Service {
 
     @Column({ type: "varchar", length: 255 })
     Description!: string;
+
+    @OneToMany(() => Service, (service) => service.ServiceId)
+    Service!: Service;
 }

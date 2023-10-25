@@ -1,41 +1,41 @@
 ###ALL TECHNICIANSKILL
-GET http://localhost:3000/Api/AllTS
+GET http://localhost:3000/DB/AllTS
 
 ###ALL CLIENT
-GET http://localhost:3000/Api/AllClients
+GET http://localhost:3000/DB/AllClients
 
 ###ALL CALLCENTRE
-GET http://localhost:3000/Api/AllCalls
+GET http://localhost:3000/DB/AllCalls
 
 ###ALL CLIENTUSER
-GET http://localhost:3000/Api/AllUsers
+GET http://localhost:3000/DB/AllUsers
 
 ###ALL CONTRACT
-GET http://localhost:3000/Api/AllContracts
+GET http://localhost:3000/DB/AllContracts
 
 ###ALL EMPLOYEE
-GET http://localhost:3000/Api/AllEmployees
+GET http://localhost:3000/DB/AllEmployees
 
 ###ALL JOB
-GET http://localhost:3000/Api/AllJobs
+GET http://localhost:3000/DB/AllJobs
 
 ###ALL JOBDESCRIPTION
-GET http://localhost:3000/Api/AllJobDescriptions
+GET http://localhost:3000/DB/AllJobDescriptions
 
 ###ALL PROBLEM
-GET http://localhost:3000/Api/AllProblems
+GET http://localhost:3000/DB/AllProblems
 
 ###ALL PROBLEMCALL
-GET http://localhost:3000/Api/AllProblemCalls
+GET http://localhost:3000/DB/AllProblemCalls
 
 ###ALL CLIENTCONTRACT
-GET http://localhost:3000/Api/AllClientContracts
+GET http://localhost:3000/DB/AllClientContracts
 
 ###ALL SERVICECONTRACT
-GET http://localhost:3000/Api/AllServiceContracts
+GET http://localhost:3000/DB/AllServiceContracts
 
 ###ALL SERVICE
-GET http://localhost:3000/Api/AllServices
+GET http://localhost:3000/DB/AllServices
 
-###ALL SERVICE
-GET http://localhost:3000/Api/Sendmail
+###SEND AN EMAIL
+GET http://localhost:3000/mail/SendMail

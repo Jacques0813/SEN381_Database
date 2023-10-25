@@ -13,14 +13,17 @@ import { ProblemCall } from "./entity/ProblemCall"
 import { ClientContract } from "./entity/ClientContract"
 import { ServiceContract } from "./entity/ServiceContract"
 import { Service } from "./entity/Service"
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 export const AppDataSource = new DataSource({
     type: "mysql",
-    host: "sql11.freesqldatabase.com",
-    port: 3306,
-    username: "sql11653999",
-    password: "rcArPmc9CM",
-    database: "sql11653999",
+    host: process.env.DB_HOST,
+    port: parseInt(process.env.DB_PORT || '3306'),
+    username: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
     synchronize: true,
     logging: false,
     entities: [

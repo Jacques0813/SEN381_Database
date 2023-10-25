@@ -13,8 +13,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "cd server && npm run dev",
+    "server-i": "cd server && npm i && npm run dev",
     "client": "cd client && npm run dev",
-    "start": "concurrently \"npm run server\" \"npm run client\""
+    "client-i": "cd client && npm i && npm run dev",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "start-i": "concurrently \"npm i\" \"npm run server-i\" \"npm run client-i\""
   },
   "keywords": [],
   "author": "",

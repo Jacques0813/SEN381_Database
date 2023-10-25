@@ -1,6 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
 import { Problem } from "./Problem"; // Import the Problem entity
 import { Job } from "./Job"; // Import the Job entity
+import { TechnicianSkill } from "./TechnicianSkill";
 
 @Entity({ name: "Employee" })
 export class Employee {
@@ -58,4 +59,10 @@ export class Employee {
 
     @OneToMany(() => Job, (job) => job.Employee)
     jobs!: Job[];
+
+    @OneToMany(() => Employee, (employee) => employee.EmpId)
+    employee!: Employee[];
+
+    @OneToMany(() => TechnicianSkill, (TCSkill) => TCSkill.EmpId)
+    TCSkill!: TechnicianSkill[];
 }
