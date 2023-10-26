@@ -1,13 +1,10 @@
-import { useState } from "react";
-
 interface TableValues {
   jsonData: any[];
-  onClickFunction: (rowData: any) => void;
+  onClickFunction: () => void;
 }
 
 function TableComponent({ jsonData, onClickFunction }: TableValues) {
   const headings = Object.keys(jsonData[0] || {});
-  const [selectedRow, setSelectedRow] = useState(null);
   let i = 0;
 
   // const handleRowClick = (rowData: any) => {
@@ -16,49 +13,46 @@ function TableComponent({ jsonData, onClickFunction }: TableValues) {
   // };
 
   return (
-    <div className="overflow-scroll max-h-[75vh] mx-[2vw]">
-      <table className="min-w-full">
-        <thead className="bg-blue-300 border-b sticky top-0">
-          <tr>
-            {headings.map((head) => (
-              <th
-                key={head}
-                scope="col"
-                className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-              >
-                {head}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {jsonData.map((data) => (
-            <tr
-              key={i++}
-              onClick={() => {
-                setSelectedRow(data);
-                onClickFunction(data);
-              }}
-              className={`${
-                selectedRow === data
-                  ? "bg-gray-700"
-                  : "bg-white hover:bg-gray-100"
-              } bg-white border-b transition duration-300 ease-in-out`}
-            >
-              {headings.map((head) => (
-                <td
-                  key={head}
-                  className={`${
-                    selectedRow === data ? "text-white" : "text-gray-900"
-                  } px-6 py-4 whitespace-nowrap text-sm font-medium`}
-                >
-                  {data[head]}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="flex flex-col">
+      <div className="overflow-x-auto sm:mx-0.5 lg:mx-0.5">
+        <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+          <div className="overflow-hidden">
+            <table className="min-w-full">
+              <thead className="bg-gray-200 border-b">
+                <tr>
+                  {headings.map((head) => (
+                    <th
+                      key={head}
+                      scope="col"
+                      className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                    >
+                      {head}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {jsonData.map((data) => (
+                  <tr
+                    key={i++}
+                    onClick={onClickFunction}
+                    className={`bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100`}
+                  >
+                    {headings.map((head) => (
+                      <td
+                        key={head}
+                        className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
+                      >
+                        {data[head]}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
