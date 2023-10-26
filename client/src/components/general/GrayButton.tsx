@@ -20,12 +20,12 @@ const GrayButton: React.FC<IGrayButton> = ({
 
   return (
     <button
-      className="group relative overflow-hidden rounded-2xl bg-gray-300 text-lg font-bold text-white"
+      className="group relative overflow-hidden rounded-md bg-gray-300 text-lg font-bold text-white ml-[0.5vw]"
       style={buttonStyle}
       onClick={onClickFunction}
     >
       {buttonText}
-      <div className="absolute inset-0 scale-0 rounded-2xl transition-all duration-300 group-hover:scale-100 group-hover:bg-white/30 z-40"></div>
+      <div className="absolute inset-0 scale-0 rounded-md transition-all duration-300 group-hover:scale-100 group-hover:bg-white/30 z-40"></div>
     </button>
   );
 };
